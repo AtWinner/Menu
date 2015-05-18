@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class DrawerListViewAdapter extends BaseAdapter {
@@ -45,27 +46,42 @@ public class DrawerListViewAdapter extends BaseAdapter {
 		holder = new ViewHolder();
 		holder.textTitle = (TextView)contentView.findViewById(R.id.textTitle);
 		holder.ImageArrow = (ImageView)contentView.findViewById(R.id.ImageArrow);
+		holder.ImageCircle = (ImageView)contentView.findViewById(R.id.ImageCircle);
+		holder.mySwitch = (Switch)contentView.findViewById(R.id.mySwitch);
+		
 		contentView.setTag(holder);
 		holder.textTitle.setText(titleString[position]);
 		switch(position)
 		{
 		case 0:
 			holder.ImageArrow.setVisibility(View.VISIBLE);
+			holder.ImageCircle.setVisibility(View.GONE);
+			holder.mySwitch.setVisibility(View.GONE);
 			break;
 		case 1:
 			holder.ImageArrow.setVisibility(View.VISIBLE);
+			holder.ImageCircle.setVisibility(View.GONE);
+			holder.mySwitch.setVisibility(View.GONE);
 			break;
 		case 2:
 			holder.ImageArrow.setVisibility(View.GONE);
+			holder.ImageCircle.setVisibility(View.VISIBLE);
+			holder.mySwitch.setVisibility(View.GONE);
 			break;
 		case 3:
 			holder.ImageArrow.setVisibility(View.GONE);
+			holder.ImageCircle.setVisibility(View.GONE);
+			holder.mySwitch.setVisibility(View.VISIBLE);
 			break;
 		case 4:
 			holder.ImageArrow.setVisibility(View.VISIBLE);
+			holder.ImageCircle.setVisibility(View.GONE);
+			holder.mySwitch.setVisibility(View.GONE);
 			break;
 		case 5:
 			holder.ImageArrow.setVisibility(View.GONE);
+			holder.ImageCircle.setVisibility(View.GONE);
+			holder.mySwitch.setVisibility(View.GONE);
 			break;
 		}
 		return contentView;
@@ -75,5 +91,7 @@ public class DrawerListViewAdapter extends BaseAdapter {
 	{
 		public TextView textTitle;
 		public ImageView ImageArrow;
+		public ImageView ImageCircle;
+		public Switch mySwitch;
 	}
 }

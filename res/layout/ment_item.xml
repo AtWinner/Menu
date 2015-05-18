@@ -28,12 +28,22 @@
 	    android:id="@+id/ImageArrow"
 	    />
 	<ImageView 
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:src="@drawable/arrow"
+	    android:layout_width="25dp"
+	    android:layout_height="25dp"
+	    android:src="@drawable/circle_yellow"
 	    android:layout_marginRight="25dp"
 	    android:layout_alignParentRight="true"
 	    android:layout_centerVertical="true"
 	    android:id="@+id/ImageCircle"
+	    />
+	<Switch 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:layout_centerVertical="true"
+	    android:textOn="On"
+	    android:textOff="Off"
+	    android:background="#383E40"
+	    android:id="@+id/mySwitch"
 	    />
 </RelativeLayout>
