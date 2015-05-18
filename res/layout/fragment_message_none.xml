@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#383E40">
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+		android:gravity="center"
+        android:src="@drawable/bell_red"
+        android:layout_marginTop="70dp"
+        />
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:text="  您还没有有收到任何消息。"
+	    android:layout_margin="10dp"
+	    android:textColor="#FFFFFF"
+	    />
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:background="#636363"
+	    android:layout_marginLeft="60dp"
+	    android:layout_marginRight="60dp"
+	    ></LinearLayout>
+</LinearLayout>

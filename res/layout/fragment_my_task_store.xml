@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            >
+			<LinearLayout 
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+            	android:orientation="vertical"
+            	android:layout_margin="40dp"
+			    >
+
+			    <ImageView
+			        android:layout_width="100dp"
+			        android:layout_height="wrap_content"
+			        android:adjustViewBounds="true"
+			        android:src="@drawable/store_stars" />
+
+			    <TextView 
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="15dp"
+			        android:layout_marginBottom="15dp"
+			        android:id="@+id/StoreStars"
+			        android:text="此店铺已通过“M”审核及骑行者认证，所发布信息均为真实有效。"
+			        />
+			    <LinearLayout android:layout_width="match_parent" android:layout_height="1dp" android:background="#000000"></LinearLayout>
+
+				<ImageView
+				    android:layout_width="100dp"
+				    android:layout_height="wrap_content"
+				    android:layout_marginTop="15dp"
+				    android:adjustViewBounds="true"
+				    android:src="@drawable/store_suggest" />
+
+			    <TextView 
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="15dp"
+			        android:layout_marginBottom="15dp"
+			        android:id="@+id/StoreSuggest"
+			        android:text="专门为宠物提供医疗服务的（医院）场所。有时宠物医院又等同于动物医院。\n我们是集防疫、门诊、住院、寄养、用品销售、宠物美容等多元化业务于一体的综合性医院"
+			        />
+			    <LinearLayout android:layout_width="match_parent" android:layout_height="1dp" android:background="#000000"></LinearLayout>
+
+				<ImageView
+				    android:layout_width="100dp"
+				    android:layout_height="wrap_content"
+				    android:layout_marginTop="15dp"
+				    android:adjustViewBounds="true"
+				    android:src="@drawable/store_contact" />
+
+			    <TextView 
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="15dp"
+			        android:layout_marginBottom="15dp"
+			        android:id="@+id/StoreContact"
+			        android:text="北京市朝阳区樱花东街甲2\n13240144644"
+			        />
+			    <LinearLayout android:layout_width="match_parent" android:layout_height="1dp" android:background="#000000"></LinearLayout>
+
+				<ImageView
+				    android:layout_width="100dp"
+				    android:layout_height="wrap_content"
+				    android:layout_marginTop="15dp"
+				    android:adjustViewBounds="true"
+				    android:src="@drawable/store_others" />
+
+			    <TextView 
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="15dp"
+			        android:layout_marginBottom="15dp"
+			        android:id="@+id/StoreOthers"
+			        android:text="本店招募短期工，爱狗人士及实名认证用户优先，薪资面议"
+			        />
+			    <LinearLayout android:layout_width="match_parent" android:layout_height="1dp" android:background="#000000"></LinearLayout>
+				<RelativeLayout 
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+			        android:layout_marginTop="15dp"
+				    >
+
+				    <ImageView
+				        android:id="@+id/btnStoreCollect"
+				        android:layout_width="130dp"
+				        android:layout_height="wrap_content"
+				        android:layout_alignParentRight="true"
+				        android:adjustViewBounds="true"
+				        android:src="@drawable/store_collect" />
+
+				</RelativeLayout>
+			</LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
