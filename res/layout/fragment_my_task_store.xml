@@ -83,7 +83,7 @@
 			        android:layout_marginTop="15dp"
 			        android:layout_marginBottom="15dp"
 			        android:id="@+id/StoreOthers"
-			        android:text="本店招募短期工，爱狗人士及实名认证用户优先，薪资面议"
+			        android:text="本店招募短期工，实名认证用户优先，薪资面议"
 			        />
 			    <LinearLayout android:layout_width="match_parent" android:layout_height="1dp" android:background="#000000"></LinearLayout>
 				<RelativeLayout 

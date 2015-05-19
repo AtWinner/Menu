@@ -2,12 +2,12 @@
 <resources>
 
     <string name="app_name">M</string>
-    <string name="title_section1">个人中心</string>
-    <string name="title_section2">任务计划</string>
-    <string name="title_section3">消息提醒</string>
-    <string name="title_section4">设置详细</string>
-    <string name="title_section5">公告声明</string>
-    <string name="title_section6">退出</string>
+    <string name="title_section1">Map</string>
+    <string name="title_section2">Found</string>
+    <string name="title_section3">Notice</string>
+    <string name="title_section4">Set up</string>
+    <string name="title_section5">Statement</string>
+    <string name="title_section6">Bow out</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>

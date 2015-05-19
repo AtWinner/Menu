@@ -17,8 +17,17 @@
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
             	android:orientation="vertical"
-            	android:layout_margin="40dp"
+            	android:layout_margin="30dp"
 			    >
+	            <ImageView 
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginLeft="40dp"
+	                android:layout_marginRight="40dp"
+	                android:layout_marginBottom="20dp"
+	                android:src="@drawable/store_top"
+	                android:layout_gravity="center"
+	                />
 			    <ImageView
 			        android:layout_width="100dp"
                 	android:layout_height="wrap_content"

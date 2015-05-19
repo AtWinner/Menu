@@ -3,9 +3,11 @@ package com.example.sqlite;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class DBController {
 	private DBHelper helper = null;
@@ -136,13 +138,14 @@ public class DBController {
 	     {
 			 String sql="select * from Comment where TaskID = "+ID + " order by OrderPos";
 			 Cursor cur=db.rawQuery(sql, new String[]{});
-			 int length = 3;
+			 int length = 4;
 			 while(cur.moveToNext())
 	         {
 				 HashMap<String, String> map = new HashMap<String, String>();
 				 for(int i=0; i < length; i++)
 		         {
 					 map.put(cur.getColumnName(i), cur.getString(i));
+					 Log.e(cur.getColumnName(i), cur.getString(i));
 		         }
 				 list.add(map);
 	         }

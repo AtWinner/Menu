@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable.Orientation;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,10 +46,12 @@ public class DetailActivity extends FragmentActivity {
 	private HashMap<String, String> taskMap;
 	private List<HashMap<String, String>> CommentMap;
 	private DBController controller ;
+	private int screenWidth;       // 屏幕宽  
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail);
+		screenWidth  = getWindowManager().getDefaultDisplay().getWidth();
 		TaskBodyPager = (ViewPager)findViewById(R.id.TaskBodyPager);
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 		TaskBodyPager.setAdapter(mSectionsPagerAdapter);
@@ -107,6 +112,7 @@ public class DetailActivity extends FragmentActivity {
 		        	break;
 		        case 1:
 		        	rootView = inflater.inflate(R.layout.fragment_my_task_store, container, false);
+		        	setStoreInfo(rootView);
 		        	break;
 		        default:
 		        	rootView = inflater.inflate(R.layout.fragment_my_task_comment, container, false);
@@ -148,16 +154,38 @@ public class DetailActivity extends FragmentActivity {
 				}
 			});
 		}
-		
+		/**
+		 * 设置店铺信息
+		 * @param rootView
+		 */
+		private void setStoreInfo(View rootView)
+		{
+			ImageView btnStoreCollect = (ImageView)rootView.findViewById(R.id.btnStoreCollect);
+			btnStoreCollect.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					Toast.makeText(DetailActivity.this, "店铺收藏成功", Toast.LENGTH_SHORT).show();
+				}
+			});
+		}
 		private void setReply(View rootView)
 		{
 			LinearLayout LinearComment = (LinearLayout)rootView.findViewById(R.id.LinearComment);
 			if(CommentMap == null ||CommentMap.size() <=0 )
 			{
-				
+				TextView text = new TextView(DetailActivity.this);
+				text.setText("还没有评论，快来抢沙发吧");
+				LayoutParams textParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+				textParams.topMargin=100;
+				text.setLayoutParams(textParams);
+				text.setGravity(Gravity.CENTER);
+				text.setTextColor(R.color.myGreen);
+				LinearComment.addView(text);
 			}
 			else
 			{
+				linkToLogo link = new linkToLogo();
 				for(int i = 0; i < CommentMap.size(); i++)
 				{
 					LinearLayout LinearItem = new LinearLayout(DetailActivity.this);
@@ -166,8 +194,10 @@ public class DetailActivity extends FragmentActivity {
 					LinearItem.setOrientation(LinearLayout.HORIZONTAL);
 					//展现头像
 					ImageView Head = new ImageView(DetailActivity.this);
+					LinearLayout.LayoutParams headParams = new LayoutParams(screenWidth / 5, screenWidth / 5);
+					Head.setLayoutParams(headParams);
 //					Head.setImageResource(R.drawable.head2);
-					Head.setImageResource(new linkToLogo().getImage(CommentMap.get(i).get("ImageName")));
+					Head.setImageResource(link.getImage(CommentMap.get(i).get("ImageName")));
 					LinearItem.addView(Head);
 					//头像右侧的框框
 					LinearLayout LinearRight = new LinearLayout(DetailActivity.this);
@@ -178,10 +208,20 @@ public class DetailActivity extends FragmentActivity {
 					LinearRight.setPadding(10, 10, 10, 10);
 					//用户名
 					TextView Name = new TextView(DetailActivity.this);
-					Name.setText(CommentMap.get(i).get("Content"));
+					String textInner = CommentMap.get(i).get("Content");
+//					Log.e("textInner", textInner);
+					Name.setText(textInner);
 					LinearRight.addView(Name);
 					//评价详情
 					LinearComment.addView(LinearItem);
+					
+					LinearLayout border = new LinearLayout(DetailActivity.this);
+					LayoutParams borderParams = new LayoutParams(LayoutParams.MATCH_PARENT, 3);
+					borderParams.topMargin=50;
+					borderParams.bottomMargin = 50;
+					border.setLayoutParams(borderParams);
+					border.setBackgroundColor(Color.BLACK);
+					LinearComment.addView(border);
 				}
 			}
 			
