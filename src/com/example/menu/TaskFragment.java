@@ -208,7 +208,7 @@ OnSlideListener  {
             ViewHolder holder;
             SlideView slideView = (SlideView) convertView;
             if (slideView == null) {
-                View itemView = mInflater.inflate(R.layout.list_item, null);
+                View itemView = mInflater.inflate(R.layout.list_item, slideView);
 
                 slideView = new SlideView(context);
                 slideView.setContentView(itemView);

@@ -59,7 +59,7 @@
                 android:layout_centerVertical="true"
 				android:layout_toLeftOf="@+id/IsRemember"
 				android:layout_marginRight="20dp"
-                android:text="Remember me  >  "
+                android:text="Remember me  >    "
                 android:textColor="#00C8B4"
                 />
             <CheckBox 

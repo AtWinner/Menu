@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.menucontent.MainActivity$PlaceholderFragment" 
+    android:id="@+id/fragment_page_Linear"
+    android:orientation="vertical"
+	android:background="#212227"
+	android:paddingLeft="50dp"
+	android:paddingRight="50dp">
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragmentImageUsercenter"
+        android:src="@drawable/usercenter_cf"
+		android:adjustViewBounds="true"
+        />
+</RelativeLayout>
