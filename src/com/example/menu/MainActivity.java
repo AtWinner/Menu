@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 	private LocationMode tempMode =  LocationMode.Hight_Accuracy;
 	private String tempcoor="gcj02";
 	private AlertDialog dialog;
-	private long mExitTime;
+	private long mExitTime=0;
     private NaviEngineInitListener mNaviEngineInitListener = new NaviEngineInitListener() {
 		public void engineInitSuccess() {
 			mIsEngineInitSuccess = true;
@@ -243,11 +243,16 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			Intent intent = new Intent();
+		Intent intent = new Intent();
+		switch (item.getItemId()) {
+		case R.id.action_settings:
 			intent.setClass(MainActivity.this, UserCenterNewActivity.class);
 			startActivity(intent);
-			
+			return true;
+
+		case R.id.action_found:
+			intent.setClass(MainActivity.this, FoundActivity.class);
+			startActivity(intent);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -322,27 +327,25 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 		}
 	}
 	
-	/**
-	 * 点击imageMainAcitvityLogo触发的操作
-	 */
-	private void ClickimageMainAcitvityLogo()
-	{
-		if ((System.currentTimeMillis() - mExitTime) > 2000) 
-		{
-			Object mHelperUtils;
-			Toast.makeText(MainActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
-            mExitTime = System.currentTimeMillis();
-		} 
-		else 
-		{
-            finish();
-            System.exit(0);//会将进程完全杀死
-		}
-	}
+	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			ClickimageMainAcitvityLogo();
+			 
+             if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                     Object mHelperUtils;
+                     Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                     mExitTime = System.currentTimeMillis();
+
+             } else {
+                     finish();
+                     System.exit(0);//会将进程完全杀死
+             }
+             return true;
+		}
+		if(keyCode == KeyEvent.KEYCODE_MENU)
+		{
+			return false;
 		}
 		return super.onKeyDown(keyCode, event);
 	}
