@@ -3,6 +3,7 @@ package com.example.menu;
 import java.util.HashMap;
 import java.util.List;
 
+import com.example.adapter.ZoomOutPageTransformer;
 import com.example.data.linkToLogo;
 import com.example.sqlite.DBController;
 
@@ -53,6 +54,7 @@ public class DetailActivity extends FragmentActivity {
 		setContentView(R.layout.activity_detail);
 		screenWidth  = getWindowManager().getDefaultDisplay().getWidth();
 		TaskBodyPager = (ViewPager)findViewById(R.id.TaskBodyPager);
+		TaskBodyPager.setPageTransformer(true, new ZoomOutPageTransformer());
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 		TaskBodyPager.setAdapter(mSectionsPagerAdapter);
 		ID = getIntent().getStringExtra("ID");
